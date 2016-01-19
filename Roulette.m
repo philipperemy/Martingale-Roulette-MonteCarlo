@@ -1,0 +1,10 @@
+clear;clc;
+addpath('..');
+addpath('../../helpers');
+c = randi([0 1],200,1)*2-1;
+d = cumsum(c);
+d = d + 1000;
+[mid, uppr, lowr ] = bollinger(d, 20, 1, 1.2);
+plot([mid uppr lowr d]); grid;
+[ pl, balance_cum, trds ] = TestRoulette(d);
+plot(balance_cum);

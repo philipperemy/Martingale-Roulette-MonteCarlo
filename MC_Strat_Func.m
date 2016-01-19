@@ -4,8 +4,8 @@ function [ ] = MC_Strat_Func( bet_vector )
     %[2 4 8 16 32 64]
     %[2 3 6 12 24 48]
     %[0.5 1.5 3 6 12 24 48]
-    init_bet = 16*3;
-    for takeProfit = 100:5:100
+    init_bet = 50;
+    for takeProfit = 53:5:100
         fprintf('________________\n');
         
         final_balance_mc = zeros(1,N);
@@ -13,7 +13,7 @@ function [ ] = MC_Strat_Func( bet_vector )
         mean_mc          = zeros(1,N);
         hits_count       = zeros(1,N);
         for i = 1:N
-            [final_balance_mc(i), mean_mc(i), vol_mc(i), hits_count(i)] = Martingale( bet_vector, takeProfit );
+            [final_balance_mc(i), mean_mc(i), vol_mc(i), hits_count(i)] = Martingale( bet_vector, takeProfit, init_bet );
     %         if(rem(i,1000) == 0)
     %             fprintf('[DBG] i=%i\n', i);
     %         end
